@@ -1,12 +1,8 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
-  // Estilos en línea modernos con efectos de transición y sombras elegantes
   const cardStyle = {
     background: '#ffffff',
     borderRadius: '12px',
@@ -32,19 +28,13 @@ function App() {
     <div style={{ fontFamily: 'system-ui, sans-serif', background: '#f8fafc', minHeight: '100vh', padding: '40px 20px' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
         
-        {/* Encabezado Principal */}
+        {/* Encabezado */}
         <div style={{ marginBottom: '32px' }}>
-          <a href="https://vite.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" style={{ height: '50px', margin: '0 10px' }} />
-          </a>
-          <a href="https://react.dev" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" style={{ height: '50px', margin: '0 10px' }} />
-          </a>
           <h1 style={{ color: '#0f172a', fontSize: '2.5rem', marginTop: '16px' }}>Panel Educativo Interactivo</h1>
-          <p style={{ color: '#64748b' }}>Edit <code>src/App.jsx</code> and save to test HMR</p>
+          <p style={{ color: '#64748b' }}>Plataforma de Innovación y Recursos Didácticos</p>
         </div>
 
-        {/* Botón de Contador */}
+        {/* Contador */}
         <div style={{ marginBottom: '40px' }}>
           <button 
             onClick={() => setCount((count) => count + 1)}
@@ -63,7 +53,7 @@ function App() {
           </button>
         </div>
 
-        {/* Contenedor de Tarjetas con el Reto de Innovación aplicado */}
+        {/* Tarjetas Interactivas con Mejora */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', textAlign: 'left' }}>
           
           <div 
