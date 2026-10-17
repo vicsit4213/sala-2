@@ -4,66 +4,69 @@ function App() {
   const [count, setCount] = useState(0)
 
   const cardStyle = {
-    background: '#ffffff',
-    borderRadius: '12px',
-    padding: '24px',
-    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    transition: 'all 0.3s ease',
+    background: 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)',
+    borderRadius: '16px',
+    padding: '30px',
+    boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
     cursor: 'pointer',
-    border: '1px solid #e2e8f0',
-    color: '#1e293b'
+    border: '1px solid rgba(226, 232, 240, 0.8)',
+    transform: 'translateY(0)'
   };
 
   const handleMouseEnter = (e) => {
-    e.currentTarget.style.transform = 'translateY(-4px)';
-    e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
+    e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
+    e.currentTarget.style.boxShadow = '0 20px 35px -5px rgba(37, 99, 235, 0.2), 0 15px 15px -5px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1)';
   };
 
   const handleMouseLeave = (e) => {
-    e.currentTarget.style.transform = 'translateY(0)';
-    e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+    e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8)';
   };
 
   return (
-    <div style={{ fontFamily: 'system-ui, sans-serif', background: '#f8fafc', minHeight: '100vh', padding: '40px 20px' }}>
-      <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+    <div style={{ fontFamily: 'system-ui, sans-serif', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)', minHeight: '100vh', padding: '50px 20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div style={{ maxWidth: '900px', width: '100%', background: '#ffffff', borderRadius: '24px', padding: '40px', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}>
         
-        {/* Encabezado */}
-        <div style={{ marginBottom: '32px' }}>
-          <h1 style={{ color: '#0f172a', fontSize: '2.5rem', marginTop: '16px' }}>Panel Educativo Interactivo</h1>
-          <p style={{ color: '#64748b' }}>Plataforma de Innovación y Recursos Didácticos</p>
+        <div style={{ textAlign: 'center', marginBottom: '35px' }}>
+          <h1 style={{ color: '#0f172a', fontSize: '2.5rem', marginBottom: '10px', fontWeight: '800', letterSpacing: '-0.5px' }}>Panel Educativo Interactivo</h1>
+          <p style={{ color: '#64748b', fontSize: '1.1rem' }}>Plataforma de Innovación y Recursos Didácticos 3D</p>
         </div>
 
-        {/* Contador */}
-        <div style={{ marginBottom: '40px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '45px' }}>
           <button 
             onClick={() => setCount((count) => count + 1)}
             style={{
-              background: '#2563eb',
+              background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
               color: 'white',
               border: 'none',
-              padding: '10px 20px',
-              borderRadius: '8px',
-              fontWeight: '600',
+              padding: '14px 28px',
+              borderRadius: '12px',
+              fontSize: '1rem',
+              fontWeight: '700',
               cursor: 'pointer',
-              boxShadow: '0 2px 4px rgba(37, 99, 235, 0.2)'
+              boxShadow: '0 10px 20px -5px rgba(37, 99, 235, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.3)',
+              transition: 'all 0.2s ease',
+              transform: 'translateY(0)'
             }}
+            onMouseDown={(e) => e.currentTarget.style.transform = 'translateY(2px)'}
+            onMouseUp={(e) => e.currentTarget.style.transform = 'translateY(0)'}
           >
-            Count is {count}
+            Contador Activo: {count}
           </button>
         </div>
 
-        {/* Tarjetas Interactivas con Mejora */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', textAlign: 'left' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px' }}>
           
           <div 
             style={cardStyle}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <h3 style={{ margin: '0 0 8px 0', color: '#1e293b' }}>📚 Documentación</h3>
-            <p style={{ margin: '0 0 16px 0', color: '#64748b', fontSize: '0.95rem' }}>Explora recursos pedagógicos y guías metodológicas actualizadas.</p>
-            <span style={{ display: 'inline-block', background: '#eff6ff', color: '#1d4ed8', padding: '4px 10px', borderRadius: '6px', fontSize: '0.85rem', fontWeight: '500' }}>Nivel: Básico</span>
+            <div style={{ fontSize: '2rem', marginBottom: '12px' }}>📚</div>
+            <h3 style={{ margin: '0 0 10px 0', color: '#1e293b', fontSize: '1.3rem', fontWeight: '700' }}>Documentación</h3>
+            <p style={{ margin: '0 0 20px 0', color: '#64748b', fontSize: '0.95rem', lineHeight: '1.5' }}>Explora recursos pedagógicos y guías metodológicas con diseño tridimensional avanzado.</p>
+            <span style={{ display: 'inline-block', background: '#dbeafe', color: '#1e40af', padding: '6px 14px', borderRadius: '8px', fontSize: '0.85rem', fontWeight: '600', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}>Nivel: Básico</span>
           </div>
 
           <div 
@@ -71,9 +74,10 @@ function App() {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <h3 style={{ margin: '0 0 8px 0', color: '#1e293b' }}>🤝 Comunidad Educativa</h3>
-            <p style={{ margin: '0 0 16px 0', color: '#64748b', fontSize: '0.95rem' }}>Conecta con colegas y comparte estrategias de enseñanza innovadoras.</p>
-            <span style={{ display: 'inline-block', background: '#fef3c7', color: '#b45309', padding: '4px 10px', borderRadius: '6px', fontSize: '0.85rem', fontWeight: '500' }}>Nivel: Avanzado</span>
+            <div style={{ fontSize: '2rem', marginBottom: '12px' }}>🤝</div>
+            <h3 style={{ margin: '0 0 10px 0', color: '#1e293b', fontSize: '1.3rem', fontWeight: '700' }}>Comunidad Educativa</h3>
+            <p style={{ margin: '0 0 20px 0', color: '#64748b', fontSize: '0.95rem', lineHeight: '1.5' }}>Conecta con colegas y comparte estrategias de enseñanza innovadoras e interactivas.</p>
+            <span style={{ display: 'inline-block', background: '#fef3c7', color: '#92400e', padding: '6px 14px', borderRadius: '8px', fontSize: '0.85rem', fontWeight: '600', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}>Nivel: Avanzado</span>
           </div>
 
         </div>
